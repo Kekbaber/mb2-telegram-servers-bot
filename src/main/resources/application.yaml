@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: mb2-telegram-servers-bot
+
+bot:
+  name: #bot name
+  token: #bot token
+
+app:
+  servers:
+    update-interval: 300000
+
+server:
+  url: "https://servers.moviebattles.org/"
