@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public enum Commands {
-    START("/check"),
+    START("/start"),
     SERVER_LIST("/serverlist"),
     UNKNOWN("/unknown");
 
