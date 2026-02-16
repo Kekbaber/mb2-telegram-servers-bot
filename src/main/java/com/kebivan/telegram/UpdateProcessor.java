@@ -4,6 +4,7 @@ import com.kebivan.utils.MessageUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import org.telegram.telegrambots.meta.api.methods.ActionType;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
@@ -35,6 +36,8 @@ public class UpdateProcessor {
     }
 
     private void distributeMessagesByType(Update update) {
+        Long chatId = update.getMessage().getChatId();
+        telegramBot.changeAction(chatId, ActionType.TYPING);
         var message = update.getMessage();
         if (message.hasText()) {
             processTextMessage(update);
