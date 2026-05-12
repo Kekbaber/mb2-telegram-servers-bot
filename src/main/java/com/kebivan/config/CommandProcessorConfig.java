@@ -1,4 +1,4 @@
-package com.kebivan.configs;
+package com.kebivan.config;
 
 import com.kebivan.telegram.comannds.BotCommand;
 import com.kebivan.telegram.comannds.impl.UnknownCommand;

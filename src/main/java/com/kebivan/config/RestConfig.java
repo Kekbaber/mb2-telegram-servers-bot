@@ -1,4 +1,4 @@
-package com.kebivan.configs;
+package com.kebivan.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

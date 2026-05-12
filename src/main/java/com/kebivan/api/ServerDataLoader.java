@@ -3,8 +3,8 @@ package com.kebivan.api;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kebivan.models.Server;
-import com.kebivan.services.ServerDataService;
+import com.kebivan.model.Server;
+import com.kebivan.service.impl.ServerServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,11 +21,11 @@ public class ServerDataLoader {
     private List<Server> servers;
 
     @Autowired
-    private final ServerDataService serverDataService;
+    private final ServerServiceImpl serverServiceImpl;
 
-    public ServerDataLoader(RestClient restClient, ServerDataService serverDataService) {
+    public ServerDataLoader(RestClient restClient, ServerServiceImpl serverServiceImpl) {
         this.restClient = restClient;
-        this.serverDataService = serverDataService;
+        this.serverServiceImpl = serverServiceImpl;
         servers = new ArrayList<>();
         updateServerDetails();
         refreshServerData();
@@ -49,7 +49,7 @@ public class ServerDataLoader {
 
     public void refreshServerData() {
         List<Server> freshData = servers;
-        serverDataService.updateServers(freshData);
+        serverServiceImpl.updateServers(freshData);
     }
 
 

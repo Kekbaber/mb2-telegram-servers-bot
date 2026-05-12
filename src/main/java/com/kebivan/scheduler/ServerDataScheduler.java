@@ -1,4 +1,4 @@
-package com.kebivan.schedulers;
+package com.kebivan.scheduler;
 
 import com.kebivan.api.ServerDataLoader;
 import lombok.extern.slf4j.Slf4j;
