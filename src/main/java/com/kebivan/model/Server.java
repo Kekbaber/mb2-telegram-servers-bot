@@ -1,13 +1,11 @@
 package com.kebivan.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.util.List;
 
-@Setter
-@Getter
+@Data
 public class Server {
 
     private String id;
@@ -98,20 +96,5 @@ public class Server {
     @JsonProperty("country_code")
     public void setCountryCode(String countryCode) {
         this.countryCode = countryCode;
-    }
-
-    @Override
-    public String toString() {
-        return "Server{" +
-                "id='" + id + '\'' +
-                ", serverName='" + serverName + '\'' +
-                ", gameMode='" + gameMode + '\'' +
-                ", mapName='" + mapName + '\'' +
-                ", onlinePlayers=" + onlinePlayers +
-                ", maxPlayers=" + maxPlayers +
-                ", playerList=" + playerList +
-                ", regionCode='" + regionCode + '\'' +
-                ", countryCode='" + countryCode + '\'' +
-                '}';
     }
 }
