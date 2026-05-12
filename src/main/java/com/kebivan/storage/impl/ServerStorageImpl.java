@@ -12,7 +12,15 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class ServerStorageImpl implements ServerStorage {
 
-    private final ConcurrentHashMap<String, Server> serversCache = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, Server> serversCache = new ConcurrentHashMap<>();
+
+    public void replaceAll(Collection<Server> servers) {
+        ConcurrentHashMap<String, Server> newMap = new ConcurrentHashMap<>();
+        for (Server s : servers) {
+            newMap.put(s.getId(), s);
+        }
+        this.serversCache = newMap;
+    }
 
     @Override
     public Collection<Server> findAll() {
@@ -20,8 +28,8 @@ public class ServerStorageImpl implements ServerStorage {
     }
 
     @Override
-    public Optional<Server> findById() {
-        return Optional.empty();
+    public Optional<Server> findById(String id) {
+        return Optional.ofNullable(serversCache.get(id));
     }
 
     @Override
