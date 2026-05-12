@@ -21,12 +21,12 @@ public class ServerDataController {
     }
 
     @GetMapping("/all")
-    public Collection<Server> getServersList()  {
+    public Collection<Server> findAll()  {
         return service.findAll();
     }
 
     @GetMapping("/populated")
-    public List<Server> getPopulatedServers() {
+    public List<Server> findPopulated() {
         return service.findPopulated();
     }
 
