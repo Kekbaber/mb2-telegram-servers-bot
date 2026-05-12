@@ -1,11 +1,9 @@
 package com.kebivan.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Setter
-@Getter
+@Data
 public class Player {
 
     private String score;
@@ -20,14 +18,5 @@ public class Player {
     @JsonProperty("name_nocolor")
     public void setName(String name) {
         this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Player{" +
-                "score='" + score + '\'' +
-                ", ping=" + ping +
-                ", name='" + name + '\'' +
-                '}';
     }
 }
